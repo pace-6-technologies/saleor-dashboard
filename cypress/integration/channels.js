@@ -43,18 +43,23 @@ describe("Channels", () => {
     const randomChannel = `${channelStartsWith} ${faker.random.number()}`;
     cy.visit(URL_LIST.channels).waitForGraph("Channels");
     channelsUtils.createChannelByView(randomChannel, currency);
+    // New channel should be visible in channels list
     cy.waitForGraph("Channel")
       .get(ADD_CHANNEL_FORM_SELECTOS.backToChannelsList)
       .click()
       .get(CHANNELS_SELECTORS.channelsTable)
       .contains(randomChannel)
-      .visit(URL_LIST.dashbord)
+      
+    // new channel should be visible in channel selector
+    cy.visit(URL_LIST.dashbord)
       .get(HEADER_SELECTORS.channelSelect)
       .click()
       .get(HEADER_SELECTORS.channelSelectList)
       .contains(randomChannel)
       .click()
-      .visit(URL_LIST.products)
+      
+    // new channel should be visible at product availability form
+    cy.visit(URL_LIST.products)
       .waitForGraph("InitialProductFilterData");
     cy.get(PRODUCTS_SELECTORS.productsList)
       .first()

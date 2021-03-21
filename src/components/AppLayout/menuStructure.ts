@@ -1,3 +1,4 @@
+import uploadIcon from "@assets/images/activate-icon.svg";
 import appsIcon from "@assets/images/menu-apps-icon.svg";
 import catalogIcon from "@assets/images/menu-catalog-icon.svg";
 import customerIcon from "@assets/images/menu-customers-icon.svg";
@@ -13,6 +14,7 @@ import { categoryListUrl } from "../../categories/urls";
 import { collectionListUrl } from "../../collections/urls";
 import { customerListUrl } from "../../customers/urls";
 import { saleListUrl, voucherListUrl } from "../../discounts/urls";
+import { fileUploadUrl } from "../../fileUpload/urls";
 import { orderDraftListUrl, orderListUrl } from "../../orders/urls";
 import { productListUrl } from "../../products/urls";
 import { languageListUrl } from "../../translations/urls";
@@ -95,7 +97,6 @@ function createMenuStructure(intl: IntlShape): IMenuItem[] {
       testingContextId: "customers",
       url: customerListUrl()
     },
-
     {
       ariaLabel: "discounts",
       children: [
@@ -124,6 +125,14 @@ function createMenuStructure(intl: IntlShape): IMenuItem[] {
       permission: PermissionEnum.MANAGE_APPS,
       testingContextId: "apps",
       url: appsListPath
+    },
+    {
+      ariaLabel: "File Upload",
+      icon: uploadIcon,
+      label: intl.formatMessage(sectionNames.fileUpload),
+      permission: PermissionEnum.MANAGE_PRODUCTS,
+      testingContextId: "file-upload",
+      url: fileUploadUrl
     },
     {
       ariaLabel: "translations",

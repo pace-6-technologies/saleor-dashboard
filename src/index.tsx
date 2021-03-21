@@ -42,6 +42,7 @@ import AppStateProvider from "./containers/AppState";
 import BackgroundTasksProvider from "./containers/BackgroundTasks";
 import { CustomerSection } from "./customers";
 import DiscountSection from "./discounts";
+import { FileUploadSection } from "./fileUpload";
 import HomePage from "./home";
 import { commonMessages } from "./intl";
 import NavigationSection from "./navigation";
@@ -190,6 +191,11 @@ const Routes: React.FC = () => {
                 permissions={[PermissionEnum.MANAGE_USERS]}
                 path="/customers"
                 component={CustomerSection}
+              />
+              <SectionRoute
+                permissions={[PermissionEnum.MANAGE_PRODUCTS]}
+                path="/fileUpload"
+                component={FileUploadSection}
               />
               <SectionRoute
                 permissions={[PermissionEnum.MANAGE_DISCOUNTS]}

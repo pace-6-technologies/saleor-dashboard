@@ -216,6 +216,10 @@ export const sectionNames = defineMessages({
     defaultMessage: "Exchange Rates",
     description: "Manage and Update your warehouse information"
   },
+  fileUpload: {
+    defaultMessage: "File Upload",
+    description: "file upload section name"
+  },
   home: {
     defaultMessage: "Home",
     description: "home section name"
